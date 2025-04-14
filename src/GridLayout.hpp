@@ -3,17 +3,6 @@
 
 namespace geode {
 
-	enum class ExpandDirection {
-		// TopLeft,
-		Top,
-		// TopRight,
-		Right,
-		// BottomRight,
-		Bottom,
-		// BottomLeft,
-		Left,
-	};
-
 	class GridLayout : public Layout {
 	protected:
 		class Impl;
@@ -30,17 +19,21 @@ namespace geode {
 		void apply(cocos2d::CCNode* on) override;
 		cocos2d::CCSize getSizeHint(cocos2d::CCNode* on) const override;
 
-		ExpandDirection getExpandDirection() const;
+		Axis getMainAxis() const;
+		bool doesExpand() const;
 		float getGapX() const;
 		float getGapY() const;
-		int getMaxX() const;
-		int getMaxY() const;
+		int getMaxCountCrossMainAxis() const;
+		bool isReverseMainAxis() const;
+		bool isReverseCrossMainAxis() const;
 
-		GridLayout* setExpandDirection(ExpandDirection direction);
+		GridLayout* setMainAxis(Axis direction);
+		GridLayout* expand(bool allow);
 		GridLayout* setGapX(float gapX);
 		GridLayout* setGapY(float gapY);
-		GridLayout* setMaxX(float maxX);
-		GridLayout* setMaxY(float maxY);
+		GridLayout* setMaxCountCrossMainAxis(int value);
+		GridLayout* reverseMainAxis(bool reverse);
+		GridLayout* reverseCrossMainAxis(bool reverse);
 };
 
 }
