@@ -19,21 +19,23 @@ namespace geode {
 		void apply(cocos2d::CCNode* on) override;
 		cocos2d::CCSize getSizeHint(cocos2d::CCNode* on) const override;
 
-		Axis getMainAxis() const;
-		bool doesExpand() const;
+		Axis getExpandAxis() const;
 		float getGapX() const;
 		float getGapY() const;
-		int getMaxCountCrossMainAxis() const;
-		bool isReverseMainAxis() const;
-		bool isReverseCrossMainAxis() const;
+		int getMaxCountCrossExpandAxis() const;
+		// bool doesExpand() const;
+		bool isAutoAdjustSize() const;
+		bool isReverseExpandAxis() const;
+		bool isReverseCrossExpandAxis() const;
 
-		GridLayout* setMainAxis(Axis direction);
-		GridLayout* expand(bool allow);
+		GridLayout* setExpandAxis(Axis axis);
 		GridLayout* setGapX(float gapX);
 		GridLayout* setGapY(float gapY);
-		GridLayout* setMaxCountCrossMainAxis(int value);
-		GridLayout* reverseMainAxis(bool reverse);
-		GridLayout* reverseCrossMainAxis(bool reverse);
+		GridLayout* setMaxCountCrossExpandAxis(int value);
+		// GridLayout* expand(bool allow);
+		GridLayout* autoAdjustSize(bool allow);
+		GridLayout* reverseExpandAxis(bool reverse);
+		GridLayout* reverseCrossExpandAxis(bool reverse);
 };
 
 }
