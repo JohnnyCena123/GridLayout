@@ -23,15 +23,17 @@ namespace geode {
 		float getGapX() const;
 		float getGapY() const;
 		int getMaxCountCrossExpandAxis() const;
-		bool doesExpand() const;
+		// bool doesExpand() const;
+		bool isAutoAdjustSize() const;
 		bool isReverseExpandAxis() const;
 		bool isReverseCrossExpandAxis() const;
 
-		GridLayout* setExpandAxis(Axis direction);
+		GridLayout* setExpandAxis(Axis axis);
 		GridLayout* setGapX(float gapX);
 		GridLayout* setGapY(float gapY);
 		GridLayout* setMaxCountCrossExpandAxis(int value);
-		GridLayout* expand(bool allow);
+		// GridLayout* expand(bool allow);
+		GridLayout* autoAdjustSize(bool allow);
 		GridLayout* reverseExpandAxis(bool reverse);
 		GridLayout* reverseCrossExpandAxis(bool reverse);
 };
